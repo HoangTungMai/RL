@@ -273,7 +273,7 @@ class Trainer:
 
                 # ---- Discrete Action Selection ----
                 # Compute Q-values for all discrete actions with their respective parameters
-                continuous_action_params = self.X_net(observation.unsqueeze(0))  # Shape: (1, num_actions, param_dim)
+                continuous_action_params = self.X_net(observation.unsqueeze(0).to(self.device))  # Shape: (1, num_actions, param_dim)
                 q_values = self.Q_net(observation.unsqueeze(0), continuous_action_params)  # Shape: (1, num_actions)
 
                 # Select the discrete action with the highest Q-value
