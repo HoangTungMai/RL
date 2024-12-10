@@ -51,8 +51,9 @@ class Trainer:
         self.continuous_actor = continuous_actor.to(self.device)
         self.critic = critic.to(self.device)
         self.Q_net = QNetwork(state_dim=self.observation_dim, param_dim=self.Continuous_parameter_dim, num_actions=self.Decrete_action_dim)
+        self.Q_net = self.Q_net.to(self.device)
         self.X_net = XNetwork(state_dim=self.observation_dim, param_dim=self.Continuous_parameter_dim, num_actions=self.Decrete_action_dim)
-
+        self.X_net = self.X_net.to(self.device)
         # Hypeparameters
         self.gamma = gamma
         self.epsilon = epsilon
