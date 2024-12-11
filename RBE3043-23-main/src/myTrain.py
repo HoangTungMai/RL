@@ -201,8 +201,8 @@ class Trainer:
             "training_cycles_per_batch": self.training_cycles_per_batch,
             "total_rewards": self.total_rewards,
             "terminal_timesteps": self.terminal_timesteps,
-            "discrete_actor_losses": self.discrete_actor_losses,
-            "continuous_actor_losses": self.continuous_actor_losses,
+            "Q_loss": self.Q_loss,
+            "X_loss": self.X_loss,
             "critic_losses": self.critic_losses,
         }
         pickle.dump(data, open(f"{directory}/state.data", "wb"))
@@ -239,8 +239,8 @@ class Trainer:
         # Memory
         self.total_rewards = data["total_rewards"]
         self.terminal_timesteps = data["terminal_timesteps"]
-        self.discrete_actor_losses = data["discrete_actor_losses"]
-        self.continuous_actor_losses = data["continuous_actor_losses"]
+        self.Q_loss = data["Q_loss"]
+        self.X_loss = data["X_loss"]
         self.critic_losses = data["critic_losses"]
 
         self.discrete_optimizer = torch.optim.Adam(
