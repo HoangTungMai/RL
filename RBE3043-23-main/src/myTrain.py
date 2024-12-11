@@ -4,7 +4,7 @@ from torch.nn import MSELoss
 from torch.distributions import Normal
 from panda_gym.envs.core import RobotTaskEnv
 import random
-# from torch.xpu import device
+from torch.xpu import device
 
 from model import DiscreteActor, ContinuousActor, Critic, QNetwork, XNetwork
 from typing import List, Tuple
