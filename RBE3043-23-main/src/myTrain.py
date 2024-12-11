@@ -203,7 +203,7 @@ class Trainer:
             "terminal_timesteps": self.terminal_timesteps,
             "Q_loss": self.Q_loss,
             "X_loss": self.X_loss,
-            "critic_losses": self.critic_losses,
+            
         }
         pickle.dump(data, open(f"{directory}/state.data", "wb"))
 
