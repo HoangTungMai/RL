@@ -477,6 +477,7 @@ class Trainer:
                 self.Q_loss.append(Q_loss)
                 self.X_loss.append(x_loss)
 
+            self.print_status()
             # Every x timesteps, save current status
             if self.current_timestep - self.last_save >= self.save_every_x_timesteps:
                 self.current_action = "Saving"
