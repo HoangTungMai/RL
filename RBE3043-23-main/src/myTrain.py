@@ -27,7 +27,7 @@ class Trainer:
             gamma: float = 0.99,
             epsilon: float = 0.2,
             alpha: float = 3e-4,
-            save_every_x_timesteps: int = 50000,
+            save_every_x_timesteps: int = 500000,
             Decrete_action_dim: int = 3,
             Continuous_parameter_dim: int = 4,
             observation_dim: int = 31,
@@ -351,7 +351,7 @@ class Trainer:
             # Increment count of timesteps
             self.current_timestep += len(obs)
 
-            self.print_status()
+            
 
         # Trim the batch memory to the batch size
         observations = observations[: self.timesteps_per_batch]
@@ -468,7 +468,7 @@ class Trainer:
                 self.current_action = (
                     f"Training cycle {c+1}/{self.training_cycles_per_batch}"
                 )
-                self.print_status()
+                
                 # Calculate losses
                 
                 Q_loss, x_loss,  = self.training_step(
